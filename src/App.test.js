@@ -1,8 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders learn react link", () => {
+it("renders learn react link", () => {
   render(<App />);
-  const linkElement = screen.getByText("Learn React");
-  expect(linkElement).toBeInTheDocument();
+  const button = screen.getByRole("button", { name: "Test Button" });
+  expect(button).toBeInTheDocument();
+  expect(button).toBeEnabled();
+
+  const checkbox = screen.getByRole("checkbox");
+  fireEvent.click(checkbox);
+  expect(button).toBeDisabled();
+
+  fireEvent.click(checkbox);
+  expect(button).toBeEnabled();
 });

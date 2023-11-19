@@ -9,7 +9,9 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: isChecked ? "gray" : "blue" }}
+        style={{
+          backgroundColor: isChecked ? "MidnightBlue" : "MediumVioletRed",
+        }}
         disabled={isChecked}
       >
         Test Button
